@@ -1,0 +1,230 @@
+---
+import Instagram from '../components/Instagram.astro';
+import Xspace from '../components/Xspace.astro';
+import Facebook from '../components/Facebook.astro';
+import Linkedin from '../components/Linkedin.astro';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/logoc21.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>	
+
+		<div class="h-screen w-screen contenedorLoader fixed flex justify-center items-center z-40 bg-[#303030] overflowx-hidden ">
+			<img src="./logoc21.svg" class="loading" alt="">
+		</div>
+		<script>
+			const contenedorLoader = document.querySelector('.contenedorLoader')
+			setTimeout(() => {
+				contenedorLoader.classList.add('opacity-0')
+		
+			}, 2000)
+			setTimeout(() => {
+				contenedorLoader.classList.add('hidden')
+			}, 2500)
+		</script>	
+
+
+
+		<header class="w-full fixed z-30 bg-[#13151A]">
+			<!-- Main navigation container -->
+			<nav
+			class="flex-no-wrap relative max-w-[1200px] h-[75px] mx-auto flex w-full items-center justify-between  py-2 shadow-md  bg-[#13151A] shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4">
+			<div class="flex w-full m-auto bg-[#13151A] flex-wrap items-center justify-between px-3 py-3 sm:py-0">
+			<!-- Hamburger button for mobile view -->
+			<button
+				class="block border-0 bg-transparent px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 text-neutral-200 lg:hidden"
+				type="button"
+				data-te-collapse-init
+				data-te-target="#navbarSupportedContent1"
+				aria-controls="navbarSupportedContent1"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+				<!-- Hamburger icon -->
+				<span class="[&>svg]:w-7">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+					class="h-7 w-7">
+					<path
+					fill-rule="evenodd"
+					d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+					clip-rule="evenodd" />
+				</svg>
+				</span>
+			</button>
+
+			<!-- Collapsible navigation container -->
+			<div
+				class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+				id="navbarSupportedContent1"
+				data-te-collapse-item>
+				<!-- Logo -->
+				<a
+				class="mb-4 ml-2 mr-5 mt-3 flex items-center    text-neutral-200 hover:text-neutral-400 focus:text-neutral-400 lg:mb-0 lg:mt-0"
+				href="#">
+				<img
+					src="./logoc21arg.svg"
+					style="height: 55px"
+					alt="TE Logo"
+					loading="lazy" />
+				</a>
+				<!-- Left navigation links -->
+				<ul
+				class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
+				data-te-navbar-nav-ref>
+				<li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+					<!-- Dashboard link -->
+					<a
+					class=" transition duration-200  hover:ease-in-out  disabled:text-black/30 motion-reduce:transition-none text-neutral-200 hover:text-neutral-300 focus:text-neutral-300 lg:px-2 [&.active]:text-zinc-400"
+					href="#"
+					data-te-nav-link-ref
+					>Sobre mí</a
+					>
+				</li>
+				<!-- Team link -->
+				<li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+					<a
+					class=" transition duration-200  hover:ease-in-out  disabled:text-black/30 motion-reduce:transition-none text-neutral-200 hover:text-neutral-300 focus:text-neutral-300 lg:px-2 [&.active]:text-neutral-400"
+					href="#"
+					data-te-nav-link-ref
+					>Comprar</a
+					>
+				</li>
+				<!-- Projects link -->
+				<li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+					<a
+					class=" transition duration-200  hover:ease-in-out  disabled:text-black/30 motion-reduce:transition-none text-neutral-200 hover:text-neutral-300 focus:text-neutral-300 lg:px-2 [&.active]:text-neutral-400"
+					href="#"
+					data-te-nav-link-ref
+					>Contacto</a
+					>
+				</li>
+				</ul>
+			</div>
+
+			<!-- Right elements -->
+			<div class="relative flex items-center gap-4">
+				<!-- Cart Icon -->
+				<a href="./" class="hover:text-[#3b5998] "><Facebook/></a>
+				<a href="./" class="hover:text-[#E1306C] "><Instagram/></a>
+				<a href="./" class="hover:text-[#aaa] "><Xspace/></a>
+				<a href="./" class="hover:text-[#0e76a8] "><Linkedin/></a>				
+				</div>
+			</div>
+			</div>
+			</nav>
+		</header>
+		<script>
+			// Initialization for ES Users
+			import {
+			Collapse,
+			Dropdown,
+			initTE,
+			} from "tw-elements";
+
+			initTE({ Collapse, Dropdown });
+		</script>
+
+		<slot />
+
+<footer class="bg-[#13151A] w-full shadow  ">
+    <div class="max-w-[1200px]  mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="./logoc21arg.svg" class="h-9" alt="">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-[#bbb]">Agustín Ameriso</span>
+            </a>
+            <ul class="flex flex-wrap items-center justify-center mb-6 text-sm font-medium text-[#bbb] sm:mb-0 ">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Incio</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Sobre mi</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Proyectos</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+
+	</body>
+	
+</html>
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: 'Roboto', sans-serif;
+		background: ;
+		background-size: 224px;
+		color: #fff;
+	}
+
+</style>
+<style>
+	@keyframes loading {
+		0% {
+			transform: scale(0.1);
+		}
+		15% {
+			transform: scale(0.2);
+		}
+		30% {
+			transform: scale(0.1);
+		}
+		45% {
+			transform: scale(0.2);
+		}
+		60% {
+			transform: scale(0.1);
+		}
+		75% {
+			transform: scale(0.2);
+		}
+
+		100% {
+			transform: scale(5);
+			opacity: 0;
+		}
+	}
+
+	.loading {
+		animation: loading 3s linear none;
+		
+	}
+	.contenedorLoader {
+		transition: all 1s ease-in-out;
+	}
+
+</style>

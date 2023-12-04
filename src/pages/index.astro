@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Agustín Jorge Ameriso">
+	<main class="">
+		<section class="flex heroTop flex-col sm:flex-row justify-center items-center text-center sm:text-left">
+
+			<img src="./agustinjorge.png" class="h-[400px] fadeIn object-cover" alt="">
+			<div class="overflow-hidden">
+				<h1 class="fadeInRight text-7xl font-bold">Agustín Ameriso</h1>
+				<p class="fadeInRight text-3xl text-[#dCd09A]">Broker Inmobiliario</p>
+			</div>
+		</section>
+		<section class="mt-[100px] sm:block ">
+			<div class="bg-[#f5f5f1] p-5 sm:p-10">
+				<div class="max-w-[1200px] mx-auto flex justify-center flex-col sm:flex-row items-center">
+					<img src="./living2.jpg" alt="" width="750">
+					<div class="flex flex-col animarCarta justify-center opacity-0  -mt-[75px] sm:mt-0 sm:-ml-[500px] xl:-ml-24 h-[320px] w-[300px] sm:h-[300px] sm:w-[700px] overflow-hidden bg-white items-center border shadow-xl rounded-lg p-4 sm:p-7">
+						<h2 class="text-base sm:text-lg text-[#333] font-bold p-2">¿Quién soy?</h2>
+						<p class="text-sm sm:text-base text-[#333] p-2">Soy Agustín Ameriso, Broker Inmobiliario, con más de 10 años de experiencia en el rubro. Me especializo en la venta de propiedades en la ciudad de Rosario y alrededores.</p>
+						<p class="text-sm sm:text-base text-[#333] hidden sm:block p-2">Mi objetivo es brindar un servicio de excelencia, asesorando a mis clientes en todo el proceso de compra y venta de propiedades.</p>
+						<p class="text-sm sm:text-base text-[#333] p-2">Mi compromiso es lograr que cada operación sea una experiencia satisfactoria para mis clientes.</p>
+					</div>
+				</div>
+			</div>
+			<div class="bg-[#f5f5f1] p-5 sm:p-10 mt-11">
+				<div class="max-w-[1200px] mx-auto flex justify-center flex-col sm:flex-row items-center">
+					<img src="./living2.jpg" alt="" width="750" class="sm:hidden">
+
+					<div class="flex flex-col animarCarta2 opacity-0 justify-center  -mt-[75px] sm:mt-0 sm:-mr-[500px] xl:-mr-24 z-10  h-[320px] w-[300px] sm:h-[300px] sm:w-[700px] overflow-hidden bg-white items-center border shadow-xl rounded-lg p-4 sm:p-7">
+						<h2 class="text-lg text-[#333] font-bold p-2">¿Quién soy?</h2>
+						<p class="text-base text-[#333] p-2">Soy Agustín Ameriso, Broker Inmobiliario, con más de 10 años de experiencia en el rubro. Me especializo en la venta de propiedades en la ciudad de Rosario y alrededores.</p>
+						<p class="text-base text-[#333] hidden sm:block p-2">Mi objetivo es brindar un servicio de excelencia, asesorando a mis clientes en todo el proceso de compra y venta de propiedades.</p>
+						<p class="text-base text-[#333] p-2">Mi compromiso es lograr que cada operación sea una experiencia satisfactoria para mis clientes.</p>
+					</div>
+					<img src="./living2.jpg" alt="" width="750" class="hidden sm:block">
+				</div>
+			</div>
+			
+		</section>
+
+		
+
+
+
+
+		<section class="max-w-[1200px] mx-auto flex flex-col gap-10 my-8 justify-center items-center p-5">
+			<h2 class="text-5xl text-[#333] font-bold p-2">Propiedades Destacadas</h2>
+			<div class="grid grid-cols-fluid opacity-0 fadeinCards w-full mx-auto items-center gap-4 p-2">
+				<Card />
+				<Card />
+				<Card />
+				<Card />
+			</div>
+				
+				
+			</div>
+		</section>
+		<script>
+			let animacion = document.querySelector('.animarCarta')
+			let animacion2 = document.querySelector('.animarCarta2')
+			let animacion3 = document.querySelector('.fadeinCards')
+			let tamañoDePantalla = window.innerHeight/1.3;
+			let posicionObj1 = animacion.getBoundingClientRect().top;
+			let posicionObj2 = animacion2.getBoundingClientRect().top;
+			let posicionObj3 = animacion3.getBoundingClientRect().top;
+			if(posicionObj3 < tamañoDePantalla) {
+					animacion3.classList.add('animateCards')
+				}
+				if(posicionObj2 < tamañoDePantalla) {
+					animacion2.classList.add('fadeInLeftCard')
+				}
+
+				if(posicionObj1 < tamañoDePantalla) {
+					animacion.classList.add('fadeInRightCard')
+				}
+
+			window.addEventListener('scroll', function() {
+
+				let posicionObj1 = animacion.getBoundingClientRect().top;
+				let posicionObj2 = animacion2.getBoundingClientRect().top;
+				let posicionObj3 = animacion3.getBoundingClientRect().top;				
+				if(posicionObj3 < tamañoDePantalla) {
+					animacion3.classList.add('animateCards')
+				}
+				if(posicionObj2 < tamañoDePantalla) {
+					animacion2.classList.add('fadeInLeftCard')
+				}
+
+				if(posicionObj1 < tamañoDePantalla) {
+					animacion.classList.add('fadeInRightCard')
+				}
+			})
+		</script>
+	</main>
+</Layout>
+
+<style>
+	.animateCards{
+		animation-name: fadeIn;
+		animation-duration: 1s;
+		animation-fill-mode: both;
+	}
+	.fadeInRightCard {
+		opacity: 0;
+		animation-name: fadeInRight;
+		animation-duration: 1s;
+		animation-fill-mode: both;
+	}
+	.fadeInLeftCard {
+		opacity: 0;
+		animation-name: fadeInLeft;
+		animation-duration: 1s;
+		animation-fill-mode: both;
+	}
+	@keyframes fadeInLeft {
+		0% {
+			opacity: 0;
+			transform: translateX(-500px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+
+
+	.fadeIn {
+		opacity: 0;
+		animation-name: fadeIn;
+		animation-duration: 1s;
+		animation-delay: 2.8s;
+		animation-fill-mode: both;
+	}
+	.heroTop {
+		height: 800px;
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('https://agustin-ameriso.vercel.app/bgg.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.fadeInRight {
+		opacity: 0;
+		animation-name: fadeInRight;
+		animation-duration: 1s;
+		animation-delay: 2.8s;
+		animation-fill-mode: both;
+	}
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(-50px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes fadeInRight {
+		0% {
+			opacity: 0;
+			transform: translateX(500px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
+
